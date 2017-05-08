@@ -1,37 +1,32 @@
+
+<!-- Dropdown Structure Personas-->
+<ul id='personasDrop' class='dropdown-content'>
+  <li routerLinkActive="active"><a routerLink="/personas/registrar">Registrar</a></li>
+</ul>
+
+
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Acceso</a></li>
-      <li><a href="#">Principal</a></li>
-      <li><a href="#">Contacto</a></li>
+      <li routerLinkActive="active"><a routerLink="/principal">Principal</a></li>
+      <li routerLinkActive="active"><a routerLink="/bears">Bears</a></li>
+      <li routerLinkActive="active"><a class="dropdown-button" data-activates='personasDrop'>Personas<i class="material-icons right">arrow_drop_down</i></a></li>      
+      <li routerLinkActive="active"><a routerLink="/contacto">Contacto</a></li>
+      <li routerLinkActive="active"><a routerLink="/acceso">Acceso</a></li>
+      <li *ngIf="isAuth"><a (click)="logout()">Salir</a></li>
     </ul>
 
     <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-      <li><a href="#">Acceso</a></li>
-      <li><a href="#">Principal</a></li>
-      <li><a href="#">Acceso</a></li>
+      <li routerLinkActive="active"><a routerLink="/principal">Principal</a></li>
+      <li routerLinkActive="active"><a routerLink="/contacto"> Contacto</a></li>
+      <li routerLinkActive="active"><a routerLink="/acceso">Acceso</a></li>
     </ul>
     <a href="#" materialize="sideNav" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>
 </nav>
-<div class="section no-pad-bot" id="index-banner">
-  <div class="container">
-    <br><br>
-    <h1 class="header center orange-text">Starter Template</h1>
-    <div class="row center">
-      <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-    </div>
-    <div class="row center">
-      <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-    </div>
-    <br><br>
-
-  </div>
-</div>
-
 
 <div class="container">
-
+  <router-outlet></router-outlet>
 </div>
 
 <footer class="page-footer orange">
