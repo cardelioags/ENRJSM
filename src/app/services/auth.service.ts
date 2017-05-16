@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from "@angular/http";
+import { Router } from "@angular/router";
 import { tokenNotExpired, JwtHelper } from "angular2-jwt";
 import "rxjs/add/operator/map";
 import { Observable } from 'rxjs/observable';
@@ -11,7 +12,7 @@ export class AuthService {
 
     isAuth = new Subject<any>();
 
-    constructor (private http: Http){}
+    constructor (private http: Http, private router:Router){}
     private urlAuth = "http://localhost:3000/api/usuarios/login";
 
     login(usuario) {
@@ -24,6 +25,7 @@ export class AuthService {
                 data => {
                     localStorage.setItem('id_token', data.token);
                     this.isAuth.next(true)
+                    this.router.navigateByUrl('/principal');
                 },
                 error => console.error(`Error: ${error}`)
             );

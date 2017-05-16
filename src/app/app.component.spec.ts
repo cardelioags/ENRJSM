@@ -30,3 +30,5 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('app works!');
   }));
 });
+
+juan => console.log(juan)

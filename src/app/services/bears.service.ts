@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from "@angular/http";
+import { AuthHttp } from "angular2-jwt";
 import 'rxjs/add/operator/map';
 
 
@@ -7,10 +8,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class BearsService {
 
-    constructor (private http: Http){ }
+    constructor (private authHttp: AuthHttp, private http:Http){ }
+
+    headers = new Headers({'Content-Type':'application/json'})
 
     bearsList(){
-        return this.http.get('http://localhost:3000/api/bears/')
+        this.headers.append('Authorization','Bearer: '+localStorage.getItem('id_token'));
+        let options = new RequestOptions({headers: this.headers})
+        return this.authHttp.get('http://localhost:3000/api/bears/')
             .map(res => res.json());
     }
     addBear(name: string){
@@ -19,11 +24,11 @@ export class BearsService {
 
         let body = JSON.stringify({name});
 
-        return this.http.post('http://localhost:3000/api/bears/', body, options)
+        return this.authHttp.post('http://localhost:3000/api/bears/', body, options)
             .map(res => res.json());
     }
     delete(id: string){
-        return this.http.delete(`http://localhost:3000/api/bears/${id}`)
+        return this.authHttp.delete(`http://localhost:3000/api/bears/${id}`)
             .map( res => res.json());
     }
 

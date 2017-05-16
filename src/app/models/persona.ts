@@ -61,9 +61,5 @@ export class Persona {
         }
         return "Femenino"
     }
-    save(){
-        //La petición http estaría aqui
-        console.log(this.nombre, this.curp);
-    }
 }
 

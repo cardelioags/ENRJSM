@@ -7,19 +7,25 @@ import { AuthModule } from "./modules/auth.module";
 import { AuthGuard } from "./_guards/auth.guard";
 
 import { MaterializeModule } from "angular2-materialize";
-
-
-import { AppComponent } from './app.component';
 import { AppRoutesModule } from "./app-routes/app-routes.module";
 
+//directives
+import { UppercaseDirective } from "./directives/uppercase";
+
+//components
+import { AppComponent } from './app.component';
 import { LogginComponent } from './loggin/loggin.component';
 import { PrincipalViewComponent } from './principal-view/principal-view.component';
 import { BearsComponent } from './bears/bears.component';
+import { PersonaComponent } from './persona/persona.component';
+import { DomicilioComponent } from './domicilio/domicilio.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 //Services
 import { BearsService } from "./services/bears.service";
 import { AuthService } from "./services/auth.service";
-import { PersonaComponent } from './persona/persona.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +34,9 @@ import { PersonaComponent } from './persona/persona.component';
     PrincipalViewComponent,
     BearsComponent,
     PersonaComponent,
+    DomicilioComponent,
+    UppercaseDirective,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
