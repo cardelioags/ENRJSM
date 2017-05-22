@@ -10,5 +10,8 @@ export const ROUTES: Routes = [
     { path: 'acceso', component: LogginComponent },
     { path: 'principal', component: PrincipalViewComponent },
     { path: 'bears', component: BearsComponent },
-    { path: 'personas/registrar', component: PersonaComponent, canActivate:[AuthGuard]}
+    { path: 'personas/registrar', component: PersonaComponent, canActivate:[AuthGuard]},
+    /*{ path: 'docentes'},
+    { path: 'tutorias'},
+    { path: ''}*/
 ]

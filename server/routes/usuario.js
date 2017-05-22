@@ -45,7 +45,10 @@ router.route('/usuarios/register')
             password: req.body.password
         });
         usuario.save((err, usuario) => {
-            if (err) res.sendStatus(err);
+            if (err) {
+                console.log(err);
+                res.json(err);
+            }
             res.json(usuario);
         })
     });

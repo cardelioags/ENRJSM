@@ -25,7 +25,7 @@ router.route('/personas')
             }
         }
         persona.save((err, persona) => {
-            if (err) res.sendStatus(err);
+            if (err) res.json(err);
             res.json(persona);
         });
     })

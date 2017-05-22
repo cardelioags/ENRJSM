@@ -25,8 +25,6 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { BearsService } from "./services/bears.service";
 import { AuthService } from "./services/auth.service";
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

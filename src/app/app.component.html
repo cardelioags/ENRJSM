@@ -3,13 +3,22 @@
 <ul id='personasDrop' class='dropdown-content'>
   <li routerLinkActive="active"><a routerLink="/personas/registrar">Registrar</a></li>
 </ul>
+<!-- Dropdown Structure Personas-->
+<ul id='alumnosDrop' class='dropdown-content'>
+  <li routerLinkActive="active"><a routerLink="/alumnos/registrar">Alta</a></li>
+  <li routerLinkActive="active"><a routerLink="/alumnos/registrar">Consulta</a></li>
+</ul>
 
 
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
       <li routerLinkActive="active"><a routerLink="/principal">Principal</a></li>
-      <li routerLinkActive="active"><a routerLink="/bears">Bears</a></li>
+      <li routerLinkActive="active"><a class="dropdown-button" data-activates='alumnosDrop'>Alumnos</a></li>
+      <li routerLinkActive="active"><a routerLink="/docentes">Docentes</a></li>
+      <li routerLinkActive="active"><a routerLink="/controlEscolar">Control Escolar</a></li>
+      <li routerLinkActive="active"><a routerLink="/administrar">Administrar</a></li>      
+      <!--<li routerLinkActive="active"><a routerLink="/bears">Bears</a></li>-->
       <li routerLinkActive="active"><a class="dropdown-button" data-activates='personasDrop'>Personas<i class="material-icons right">arrow_drop_down</i></a></li>      
       <li routerLinkActive="active"><a routerLink="/contacto">Contacto</a></li>
       <li routerLinkActive="active"><a routerLink="/acceso">Acceso</a></li>
