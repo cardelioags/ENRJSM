@@ -12,6 +12,11 @@ import { AppRoutesModule } from "./app-routes/app-routes.module";
 //directives
 import { UppercaseDirective } from "./directives/uppercase";
 
+//Services
+import { BearsService } from "./services/bears.service";
+import { AuthService } from "./services/auth.service";
+import { EntidadesService } from "./services/entidades.service";
+
 //components
 import { AppComponent } from './app.component';
 import { LogginComponent } from './loggin/loggin.component';
@@ -20,10 +25,8 @@ import { BearsComponent } from './bears/bears.component';
 import { PersonaComponent } from './persona/persona.component';
 import { DomicilioComponent } from './domicilio/domicilio.component';
 import { ContactoComponent } from './contacto/contacto.component';
-
-//Services
-import { BearsService } from "./services/bears.service";
-import { AuthService } from "./services/auth.service";
+import { EntidadesComponent } from './entidades/entidades.component';
+import { ContactoInfoComponent } from './contacto-info/contacto-info.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { AuthService } from "./services/auth.service";
     PersonaComponent,
     DomicilioComponent,
     UppercaseDirective,
-    ContactoComponent
+    ContactoComponent,
+    EntidadesComponent,
+    ContactoInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { AuthService } from "./services/auth.service";
   providers: [ 
     BearsService,
     AuthGuard,
-    AuthService
+    AuthService,
+    EntidadesService
   ],
   bootstrap: [AppComponent]
 })

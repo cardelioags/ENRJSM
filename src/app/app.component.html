@@ -1,28 +1,46 @@
 
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" routerLink='/principal' class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">    
+      <li *ngIf="isAuth"><a (click)="logout()">Salir</a></li>
+      <li *ngIf="!isAuth" routerLinkActive="active"><a routerLink="/acceso">Acceso</a></li>
+    </ul>
+  </div>
+</nav>
+
+
 <!-- Dropdown Structure Personas-->
 <ul id='personasDrop' class='dropdown-content'>
   <li routerLinkActive="active"><a routerLink="/personas/registrar">Registrar</a></li>
 </ul>
-<!-- Dropdown Structure Personas-->
+<!-- Dropdown Structure Alumnos-->
 <ul id='alumnosDrop' class='dropdown-content'>
   <li routerLinkActive="active"><a routerLink="/alumnos/registrar">Alta</a></li>
   <li routerLinkActive="active"><a routerLink="/alumnos/registrar">Consulta</a></li>
 </ul>
+<!-- Dropdown Structure Configuración-->
+<ul id='configuracionDrop' class='dropdown-content'>
+  <li routerLinkActive="active"><a routerLink="/entidades">Entidades</a></li>
+  <li routerLinkActive="active"><a routerLink="/administrar">Administrar</a></li> 
+</ul>
 
+<!-- Dropdown Structure Control Escolar -->
+<ul id='controlEscolarDrop' class="dropdown-content">
+  <li routerLinkActive='active'><a routerLink="/docentes">Docentes</a></li>
+  <li routerLinkActive='active'><a class="dropdown-button" data-activates='alumnosDrop' materialize="dropdown" [materializeParams]="configSub1">Alumnos<i class="material-icons right small">chevron_right</i></a></li>
+</ul>
+<ul id='alumnosDrop' class="dropdown-content">
+  <li routerLinkActive='active'><a routerLink="/alumnos">Consultar</a></li>
+</ul>
 
-<nav class="light-blue lighten-1" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
-      <li routerLinkActive="active"><a routerLink="/principal">Principal</a></li>
-      <li routerLinkActive="active"><a class="dropdown-button" data-activates='alumnosDrop'>Alumnos</a></li>
-      <li routerLinkActive="active"><a routerLink="/docentes">Docentes</a></li>
-      <li routerLinkActive="active"><a routerLink="/controlEscolar">Control Escolar</a></li>
-      <li routerLinkActive="active"><a routerLink="/administrar">Administrar</a></li>      
-      <!--<li routerLinkActive="active"><a routerLink="/bears">Bears</a></li>-->
-      <li routerLinkActive="active"><a class="dropdown-button" data-activates='personasDrop'>Personas<i class="material-icons right">arrow_drop_down</i></a></li>      
-      <li routerLinkActive="active"><a routerLink="/contacto">Contacto</a></li>
-      <li routerLinkActive="active"><a routerLink="/acceso">Acceso</a></li>
-      <li *ngIf="isAuth"><a (click)="logout()">Salir</a></li>
+<nav [ngStyle]="{'display': !isAuth ? 'none' : 'block' }" class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container">
+    <ul class="right hide-on-med-and-down">    
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/principal">Principal</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="dropdown-button" data-activates='configuracionDrop' materialize="dropdown" [materializeParams]="configNavDrops">Configuración<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="dropdown-button" data-activates='controlEscolarDrop' materialize="dropdown" [materializeParams]="configNavDrops">Control Escolar<i class="material-icons right">arrow_drop_down</i></a></li>     
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="dropdown-button" data-activates='personasDrop' materialize="dropdown" [materializeParams]="configNavDrops">Personas<i class="material-icons right">arrow_drop_down</i></a></li>      
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/infoContacto">Contacto</a></li>
     </ul>
 
     <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
