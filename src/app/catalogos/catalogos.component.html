@@ -1,0 +1,34 @@
+<td-layout-nav-list #navList
+      toolbarTitle="SISACE - ENRJSM"
+      navigationRoute="/"
+      
+      [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'"
+      [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '350px' : '100%'">
+  <md-nav-list td-sidenav-content
+               (click)="!media.query('gt-sm') && navList.close()">
+    <a md-list-item [routerLink]="['ciclos']">
+      <md-icon md-list-avatar>date_range</md-icon>
+      <h3 md-line>Ciclos Escolares</h3>
+      <p md-line>Admiinistrar ciclos escolares</p>
+    </a>
+    <md-divider md-inset></md-divider>
+    <a md-list-item [routerLink]="['planes']">
+      <md-icon md-list-avatar>assignment</md-icon>
+      <h3 md-line>Planes de Estudios</h3>
+      <p md-line>Define las materias y planes de estudios</p>
+    </a>
+  </md-nav-list>
+  <div td-toolbar-content layout="row" flex>
+    <span>Administrar Catálogos</span>
+    <span flex></span>
+  </div>
+
+  <router-outlet></router-outlet>
+  
+  <td-layout-footer-inner>
+    Optional inner footer
+  </td-layout-footer-inner>
+  <td-layout-footer>
+    Sistema Integral de Seguimiento Académico y Evaluación - ENRJSM
+  </td-layout-footer>
+</td-layout-nav-list>

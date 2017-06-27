@@ -19,8 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/materialize-css/dist/css/materialize.css"
+        "styles.scss",
+        "../node_modules/@covalent/core/common/platform.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",

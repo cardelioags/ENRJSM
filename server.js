@@ -12,6 +12,8 @@ const usuarioRoutes = require('./server/routes/usuario');
 const personaRoutes = require('./server/routes/persona');
 const bearRoutes = require('./server/routes/bear');
 const entidadRoutes = require('./server/routes/entidad');
+const municipioRoutes = require('./server/routes/municipio');
+const localidadRoutes = require('./server/routes/localidad');
 
 
 const app = express();
@@ -38,7 +40,14 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 //Configurar nuestras api routes
-app.use('/api', [personaRoutes, usuarioRoutes, bearRoutes, entidadRoutes]);
+app.use('/api', [
+  personaRoutes, 
+  usuarioRoutes, 
+  bearRoutes, 
+  entidadRoutes,
+  municipioRoutes,
+  localidadRoutes
+  ]);
 
 //Tomar las demás rutas y regresar index.html
 app.get('*', (req, res) => {
