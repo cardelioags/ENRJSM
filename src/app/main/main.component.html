@@ -1,12 +1,12 @@
-<td-layout>
+<td-layout #layout>
   <td-navigation-drawer sidenavTitle="Menú" name="name" navigationRoute="/">
     <md-nav-list>
       <ng-template ngFor let-item [ngForOf]="items">
-        <a md-list-item [routerLink]="[ item.route ]">{{item.value}}</a>
+        <a md-list-item [routerLink]="[ item.route ]" (click)="layout.close()">{{item.value}}</a>
       </ng-template>
     </md-nav-list>
     <md-nav-list td-navigation-drawer-menu>
-          <a md-list-item>Salir</a>
+          <a md-list-item (click)="layout.close()">Salir</a>
     </md-nav-list>
   </td-navigation-drawer>
   <div td-sidenav-content>

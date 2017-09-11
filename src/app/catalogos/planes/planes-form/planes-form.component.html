@@ -1,15 +1,25 @@
-<div class="pad" flex>
-  <md-input-container floatPlaceholder="auto">
-      <input mdInput name="plan" [(ngModel)]="plan" type="text" required placeholder="Nombre del Plan">
-      <span mdPrefix></span>
-  </md-input-container>
-  <md-input-container floatPlaceholder="auto">
-      <input mdInput name="materias" [(ngModel)]="materias" type="text" required placeholder="Materias">
-      <span mdPrefix></span>
-  </md-input-container>
-  <md-input-container floatPlaceholder="auto">
-      <input mdInput name="fecha" [(ngModel)]="fecha" type="text" required placeholder="Fecha">
-      <span mdPrefix></span>
-  </md-input-container>
-
-</div>
+<md-card>
+    <md-card-header>
+        <md-card-title>Plan</md-card-title>
+        <md-card-subtitle>Registro de nuevo plan.</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+        <div class="pad" layout-gt-sm="row" layout-margin>
+            <md-input-container floatPlaceholder="auto" flex>
+                <input mdInput name="plan" [(ngModel)]="plan" type="text" required placeholder="Nombre del Plan">
+                <span mdPrefix></span>
+            </md-input-container>
+            <md-input-container floatPlaceholder="auto" flex>
+                <input mdInput name="materias" [(ngModel)]="materias" type="text" required placeholder="Materias">
+                <span mdPrefix></span>
+            </md-input-container>
+            <md-input-container floatPlaceholder="auto" flex>
+                <input mdInput name="fecha" [(ngModel)]="fecha" type="text" required placeholder="Fecha">
+                <span mdPrefix></span>
+            </md-input-container>
+        </div>
+    </md-card-content>
+    <md-card-actions align="end">
+        <button md-button (click)="onAction1" color="primary">Guardar</button>
+    </md-card-actions>
+</md-card>
